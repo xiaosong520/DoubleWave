@@ -16,7 +16,7 @@ Step one：
 
 
 Step two：
-
+``` 
 <com.doublewave.DoubleWaveView
         android:id="@+id/waveView"
         android:layout_width="match_parent"
@@ -26,9 +26,11 @@ Step two：
         DoubleWaveView:peakValue="20dp"
         DoubleWaveView:waveHeight="200dp"
         DoubleWaveView:waveColor="@color/colorBlue"/>
+```
 
 Step three：
-
+```
  waveView = (DoubleWaveView) findViewById(R.id.waveView);
  waveView.setAnim(false);//if you do not need to set animation effects
  waveView.setAnim(true);//set true to Restart anim
+ ```
