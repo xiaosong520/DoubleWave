@@ -8,7 +8,11 @@
 
 Step one：
 
-compile 'com.xiaosong520:doublewaveview:1.0.1' 
+  //module project
+        dependencies {
+            compile 'com.xiaosong520:doublewaveview:1.0.1' 
+    }
+
 
 
 Step two：
@@ -22,10 +26,6 @@ Step two：
         DoubleWaveView:peakValue="20dp"
         DoubleWaveView:waveHeight="200dp"
         DoubleWaveView:waveColor="@color/colorBlue"/>
-
-  
-In root layout,add：
-xmlns:DoubleWaveView="http://schemas.android.com/apk/res-auto"
 
 Step three：
 
