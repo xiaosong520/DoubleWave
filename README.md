@@ -6,16 +6,18 @@
 
 ## How to Use
 
-Step one：
-
+###Step one：
+>>
+```
 //module project
         dependencies {
             compile 'com.xiaosong520:doublewaveview:1.0.1'
     }
+```
 
 
-
-Step two：
+###Step two：
+>>
 ``` 
 <com.doublewave.DoubleWaveView
         android:id="@+id/waveView"
@@ -28,7 +30,8 @@ Step two：
         DoubleWaveView:waveColor="@color/colorBlue"/>
 ```
 
-Step three：
+###Step three：
+>>
 ```
  waveView = (DoubleWaveView) findViewById(R.id.waveView);
  waveView.setAnim(false);//if you do not need to set animation effects
