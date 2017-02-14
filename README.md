@@ -8,7 +8,7 @@
 
 ###Step one：
 >>
-```
+```Java
 //module project
         dependencies {
             compile 'com.xiaosong520:doublewaveview:1.0.1'
@@ -18,7 +18,7 @@
 
 ###Step two：
 >>
-``` 
+```Java
 <com.doublewave.DoubleWaveView
         android:id="@+id/waveView"
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
 
 ###Step three：
 >>
-```
+```Java
  waveView = (DoubleWaveView) findViewById(R.id.waveView);
  waveView.setAnim(false);//if you do not need to set animation effects
  waveView.setAnim(true);//set true to Restart anim
