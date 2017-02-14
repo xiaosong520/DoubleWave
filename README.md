@@ -37,3 +37,5 @@
  waveView.setAnim(false);//if you do not need to set animation effects
  waveView.setAnim(true);//set true to Restart anim
  ```
+
+CSDN Blog:![Blog](http://blog.csdn.net/qq_22393017/article/details/55096961)
