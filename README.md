@@ -8,16 +8,16 @@
 
 Step one：
 
-  //module project
+//module project
         dependencies {
-            compile 'com.xiaosong520:doublewaveview:1.0.1' 
+            compile 'com.xiaosong520:doublewaveview:1.0.1'
     }
 
 
 
 Step two：
 
- <com.doublewave.DoubleWaveView
+<com.doublewave.DoubleWaveView
         android:id="@+id/waveView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
