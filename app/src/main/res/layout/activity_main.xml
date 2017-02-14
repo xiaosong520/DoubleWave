@@ -27,7 +27,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="停止"
+            android:text="STOP"
             android:textColor="@android:color/white"
             android:background="@color/colorPrimary"/>
 
@@ -37,7 +37,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="开始"
+            android:text="START"
             android:textColor="@android:color/white"
             android:background="@color/colorPrimary"/>
     </LinearLayout>
