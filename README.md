@@ -38,4 +38,4 @@
  waveView.setAnim(true);//set true to Restart anim
  ```
 
-CSDN Blog:![Blog](http://blog.csdn.net/qq_22393017/article/details/55096961)
+CSDN Blog:[小嵩的博客](http://blog.csdn.net/qq_22393017/article/details/55096961)
