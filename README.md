@@ -6,8 +6,8 @@
 
 ## How to Use
 
-###Step one：
->>
+### Step one：
+
 ```Java
 //module project
         dependencies {
@@ -16,8 +16,8 @@
 ```
 
 
-###Step two：
->>
+### Step two：
+
 ```Java
 <com.doublewave.DoubleWaveView
         android:id="@+id/waveView"
@@ -30,8 +30,8 @@
         DoubleWaveView:waveColor="@color/colorBlue"/>
 ```
 
-###Step three：
->>
+### Step three：
+
 ```Java
  waveView = (DoubleWaveView) findViewById(R.id.waveView);
  waveView.setAnim(false);//if you do not need to set animation effects
