@@ -1,14 +1,14 @@
 # DoubleWave
 # this is a custom view for android
 
-![GIF](http://img.blog.csdn.net/20170214111005330?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjIzOTMwMTc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![GIF](https://github.com/xiaosong520/DoubleWave/blob/master/app/GIF.gif)
 
 
 ## How to Use
 
-###Step one：
->>
-```
+### Step one：
+
+```Java
 //module project
         dependencies {
             compile 'com.xiaosong520:doublewaveview:1.0.1'
@@ -16,9 +16,9 @@
 ```
 
 
-###Step two：
->>
-``` 
+### Step two：
+
+```Java
 <com.doublewave.DoubleWaveView
         android:id="@+id/waveView"
         android:layout_width="match_parent"
@@ -30,10 +30,12 @@
         DoubleWaveView:waveColor="@color/colorBlue"/>
 ```
 
-###Step three：
->>
-```
+### Step three：
+
+```Java
  waveView = (DoubleWaveView) findViewById(R.id.waveView);
  waveView.setAnim(false);//if you do not need to set animation effects
  waveView.setAnim(true);//set true to Restart anim
  ```
+
+CSDN Blog:[小嵩的博客](http://blog.csdn.net/qq_22393017/article/details/55096961)
