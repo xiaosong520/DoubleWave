@@ -3,9 +3,9 @@ package com.doublewave;
 import android.content.Context;
 
 /**
- * @TODO<分辨率转换工具类>
- * @author 小嵩
- * @date 2016-8-3 09:20:46
+ * 分辨率转换工具类
+ * 小嵩
+ * 2016-8-3 09:20:46
  */
 public class DensityUtil {
     /**

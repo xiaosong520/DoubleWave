@@ -1,7 +1,7 @@
 package com.doublewave;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_start:
-                waveView.setAnim(true);
+                    waveView.setAnim(true);
                 break;
             case R.id.btn_stop:
                 waveView.setAnim(false);

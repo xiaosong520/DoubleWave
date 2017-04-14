@@ -9,13 +9,14 @@ import android.graphics.PaintFlagsDrawFilter;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
+
+import com.doublewavelibrary.R;
+
+
 /**
- * TODO<类的说明>
- *
- * @author: 小嵩
- * @QQ: 1006013376
- * @date: 2017/2/9 16:07
- * @version: V1.0
+ * 自定义流动的双波纹控件
+ * 小嵩
+ * 2017/2/9 16:07
  */
 
 
@@ -28,16 +29,14 @@ public class DoubleWaveView extends View {
     private static  int OFFSET_Y = 0;//正弦函数的Y偏移量
 
     private static  int WaveHeight = 0;//波浪高度（Y轴方向）
-    private static  int TRANSLATE_X_SPEED_ONE ;    // 第一条水波移动速度 单位dp
-    private static  int TRANSLATE_X_SPEED_TWO ;    // 第二条水波移动速度 单位dp
+    private static  int TRANSLATE_X_SPEED_ONE ;    // 第一条水波的移动速度 单位dp
+    private static  int TRANSLATE_X_SPEED_TWO ;    // 第二条水波的移动速度 单位dp
     private int mXOffsetSpeedOne;//单位 PX
     private int mXOffsetSpeedTwo;//单位 PX
 
     private float mCycleFactorW;//这里是指代表ω周期因素 最小正周期 T = 2π/|ω|
     private int mTotalWidth, mTotalHeight;//View 控件的宽高
     private float[] mYPositions;//原始波浪
-   /* private float[] mResetOneYPositions;//第一个波浪的Y值数组
-    private float[] mResetTwoYPositions;//第二个波浪的Y值数组*/
 
     private int mXOneOffset;//第一条波浪的X轴 偏移量
     private int mXTwoOffset;//第二条波浪的X轴 偏移量
@@ -64,25 +63,24 @@ public class DoubleWaveView extends View {
         int n = a.getIndexCount();
         for (int i = 0; i < n; i++) {
             int attr = a.getIndex(i);
-            switch (attr) {
-                case R.styleable.DoubleWaveView_peakValue:
-                    //振幅默认是30dp
-                    STRETCH_FACTOR_A =  a.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(
-                            TypedValue.COMPLEX_UNIT_DIP, 30, getResources().getDisplayMetrics()));
-                    break;
-                case R.styleable.DoubleWaveView_waveColor:
-                    WAVE_PAINT_COLOR = a.getColor(attr, 0x881E90FF);//默认是蓝色
-                    break;
-                case R.styleable.DoubleWaveView_speedOne:
-                    TRANSLATE_X_SPEED_ONE = a.getInteger(attr,7);//默认是7
-                    break;
-                case R.styleable.DoubleWaveView_speedTwo:
-                    TRANSLATE_X_SPEED_TWO = a.getInteger(attr,5);//默认是5
-                    break;
-                case R.styleable.DoubleWaveView_waveHeight:
-                    WaveHeight = a.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(
-                            TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics()));//默认100dp
-                    break;
+
+            if (attr == R.styleable.DoubleWaveView_peakValue) {//振幅默认是30dp
+                STRETCH_FACTOR_A = a.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(
+                        TypedValue.COMPLEX_UNIT_DIP, 30, getResources().getDisplayMetrics()));
+
+            } else if (attr == R.styleable.DoubleWaveView_waveColor) {
+                WAVE_PAINT_COLOR = a.getColor(attr, 0x881E90FF);//默认是蓝色
+
+            } else if (attr == R.styleable.DoubleWaveView_speedOne) {
+                TRANSLATE_X_SPEED_ONE = a.getInteger(attr, 7);//默认是7
+
+            } else if (attr == R.styleable.DoubleWaveView_speedTwo) {
+                TRANSLATE_X_SPEED_TWO = a.getInteger(attr, 5);//默认是5
+
+            } else if (attr == R.styleable.DoubleWaveView_waveHeight) {
+                WaveHeight = a.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(
+                        TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics()));//默认100dp
+
             }
         }
         a.recycle();
@@ -107,19 +105,6 @@ public class DoubleWaveView extends View {
         super.onDraw(canvas);
         //从canvas层面去除绘制时的锯齿
         canvas.setDrawFilter(mDrawFilter);
-        /*resetPositonY();*/
-
-        /*for (int i = 0; i < mTotalWidth; i++) {
-
-            // 减500只是为了控制波纹绘制的y的在屏幕的位置(高度)，大家可以改成一个变量，然后动态改变这个变量，从而形成波纹上升下降效果
-
-            // 绘制第一条水波纹（竖直方向）
-            canvas.drawLine(i, mTotalHeight - mResetOneYPositions[i] - 500, i, mTotalHeight, mWavePaint);
-
-            // 绘制第二条水波纹（竖直方向）
-            canvas.drawLine(i, mTotalHeight - mResetTwoYPositions[i] - 500, i, mTotalHeight, mWavePaint);
-        }*/
-
         for(int i=0,j=0,k=0;i<mTotalWidth;i++){
 
             if(i+mXOneOffset<mTotalWidth){//第一条波纹图形绘制
@@ -181,20 +166,6 @@ public class DoubleWaveView extends View {
         }
     };
 
-
-    /*private void resetPositonY() {//Copy Y值的数组,太浪费内存，已通过Offset 偏移量 来对
-
-        // mXOneOffset代表当前第一条水波纹要移动的距离
-        int yOneInterval = mYPositions.length - mXOneOffset;
-        // 使用System.arraycopy方式重新填充第一条波纹的数据
-        System.arraycopy(mYPositions, mXOneOffset, mResetOneYPositions, 0, yOneInterval);
-        System.arraycopy(mYPositions, 0, mResetOneYPositions, yOneInterval, mXOneOffset);
-
-        int yTwoInterval = mYPositions.length - mXTwoOffset;
-        System.arraycopy(mYPositions, mXTwoOffset, mResetTwoYPositions, 0,
-                yTwoInterval);
-        System.arraycopy(mYPositions, 0, mResetTwoYPositions, yTwoInterval, mXTwoOffset);
-    }*/
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
