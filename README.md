@@ -35,7 +35,7 @@
 ```Java
  waveView = (DoubleWaveView) findViewById(R.id.waveView);
  waveView.setAnim(false);//if you do not need to set animation effects
- waveView.setAnim(true);//set true to Restart anim
+ //waveView.setAnim(true);// Restart anim
  ```
 
 CSDN Blog:[小嵩的博客](http://blog.csdn.net/qq_22393017/article/details/55096961)
