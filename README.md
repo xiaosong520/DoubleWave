@@ -11,7 +11,7 @@
 ```Java
 //module project
         dependencies {
-            compile 'com.xiaosong520:doublewaveview:1.0.1'
+            compile 'com.xiaosong520:doublewaveview:1.0.2'
     }
 ```
 
