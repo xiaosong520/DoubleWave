@@ -155,10 +155,10 @@ public class DoubleWaveView extends View {
         public void run() {
             {
                 try {
+                    //界面更新的频率,每20ms更新一次界面
+                    Thread.sleep(20);
                     //通知系统更新界面,相当于调用了onDraw函数
                     postInvalidate();
-                    //界面更新的频率,每10ms更新一次界面,留出绘制时间
-                    Thread.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
